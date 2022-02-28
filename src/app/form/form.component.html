@@ -1,1 +1,36 @@
-<p>form works!</p>
+<div class="card m-3">
+    <h5 class="card-header">Formualario de Contacto</h5>
+    <div class="card-body">
+        <form [formGroup]="formularioFutbol" (ngSubmit)="enviarDatos()">
+            <div class ="row">
+
+                <div class="form-group col-4">
+                <label>Nombre</label>
+                <input type="text" formControlName="nombre" class="form-control"  />
+                
+            </div>
+                
+            <div class="form-group col-4">
+                <label>Correo</label>
+                <input type="email" formControlName="correo" class="form-control"  />
+                
+            </div>
+            <div class="form-group col-4">
+                <label>Apellido</label>
+                <input type="text" formControlName="apellidos" class="form-control"  />
+                
+            </div>
+        </div>
+        <div class="form-group col-12">
+            <label>Fecha nacimiento</label>
+            <input type="date" formControlName="fnacimiento" class="form-control"  />
+            
+        </div>    
+        <div class="text-center">
+            <button class="btn btn-primary mr-1" >Register</button>
+            <button class="btn btn-secondary" type="reset" (click)="onReset()">Reset</button>
+        </div>
+        <p class="text-danger">{{error}}</p>
+        </form>
+    </div>
+</div>

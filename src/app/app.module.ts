@@ -4,21 +4,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { FormComponent } from './form/form.component';
+import { FormsModule } from '@angular/forms';
 import { ListaComponent } from './lista/lista.component';
-
-import {HttpClientModule} from '@angular/common/http'
+ import { ReactiveFormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import { FormComponent } from './form/form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    ListaComponent,
     FormComponent,
-    ListaComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [],
