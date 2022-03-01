@@ -9,49 +9,74 @@
 <body>
     <br>
     <br>
-    <h1 class="text-center">Clasificación Actual</h1>
-    <br>
-    <br>
-    <div class="container">
+    <div class="container" *ngIf="id ;else noID">
         <div class="abs-center">
-    <table class="text-center table h-50 d-inline-block">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Escudo</th>
-            <th scope="col">Equipo</th>
-            <th scope="col">Puntos</th>
-            <th scope="col">Partidos Jugados</th>
-            <th scope="col">Partidos Ganados</th>
-            <th scope="col">Partidos Perdidos</th>
-            <th scope="col">Partidos Empatados</th>
-            <th scope="col">Goles A Favor</th>
-            <th scope="col">Goles En Contra</th>
-            <th scope="col">Diferencia De Goles</th>
-            <th scope="col">Detalles</th>
-            
-          </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let t of clasificacion">
-                <th scope="row">{{ t.intRank }}</th>
-                <td><img src="{{ t.strTeamBadge }}" alt="logo_equipo"></td>
-                <td>{{ t.strTeam }}</td>
-                <td>{{ t.intPoints }}</td>
-                <td>{{ t.intPlayed }}</td>
-                <td>{{ t.intWin }}</td>
-                <td>{{ t.intLoss }}</td>
-                <td>{{ t.intDraw }}</td>
-                <td>{{ t.intGoalsFor }}</td>
-                <td>{{ t.intGoalsAgainst }}</td>
-                <td>{{ t.intGoalDifference }}</td>
-                <td><a href="https://www.thesportsdb.com/api/v1/json/2/lookupequipment.php?id={{t.team}}"><img src="assets/planificacion.png" alt=""></a></td>
-                
-              </tr>
+          <br><br>
+          <h1 class="text-center">Equipaciones Equipo</h1>
+          <br><br>
+          <div  class="row">
+            <div *ngFor="let e of equipo" class="col-4">
 
-        </tbody>
-      </table>
+              <div  class="card" style="width: 18rem;">
+                <img src="{{e.strEquipment}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title text-center">{{e.strSeason}}</h5>
+                  
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          
+          
       </div>
       </div>
+      <ng-template #noID>
+        <br><br>
+        <h1 class="text-center">Clasificación Actual</h1>
+        <br><br>
+        <div class="container">
+          <div class="abs-center">
+      <table class="text-center table h-50 d-inline-block">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Escudo</th>
+              <th scope="col">Equipo</th>
+              <th scope="col">Puntos</th>
+              <th scope="col">Partidos Jugados</th>
+              <th scope="col">Partidos Ganados</th>
+              <th scope="col">Partidos Perdidos</th>
+              <th scope="col">Partidos Empatados</th>
+              <th scope="col">Goles A Favor</th>
+              <th scope="col">Goles En Contra</th>
+              <th scope="col">Diferencia De Goles</th>
+              <th scope="col">Detalles</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let t of clasificacion">
+                  <th scope="row">{{ t.intRank }}</th>
+                  <td><img src="{{ t.strTeamBadge }}" alt="logo_equipo"></td>
+                  <td>{{ t.strTeam }}</td>
+                  <td>{{ t.intPoints }}</td>
+                  <td>{{ t.intPlayed }}</td>
+                  <td>{{ t.intWin }}</td>
+                  <td>{{ t.intLoss }}</td>
+                  <td>{{ t.intDraw }}</td>
+                  <td>{{ t.intGoalsFor }}</td>
+                  <td>{{ t.intGoalsAgainst }}</td>
+                  <td>{{ t.intGoalDifference }}</td>
+                  <td><a [routerLink]="['/lista/',t.idTeam]"><img src="assets/planificacion.png" alt=""></a></td>
+                  
+                </tr>
+  
+          </tbody>
+        </table>
+        </div>
+        </div>
+      </ng-template>
 </body>
 </html>
