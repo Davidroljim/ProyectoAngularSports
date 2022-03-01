@@ -1,5 +1,7 @@
 <div class="card m-3">
-    <h5 class="card-header">Formualario de Contacto</h5>
+    <h5 class="text-center card-header">Formualario de Contacto</h5>
+    <div class="container">
+        <div class="abs-center">
     <div class="card-body">
         <form [formGroup]="formularioFutbol" (ngSubmit)="enviarDatos()">
             <div class ="row">
@@ -32,5 +34,7 @@
         </div>
         <p class="text-danger">{{error}}</p>
         </form>
+    </div>
+    </div>
     </div>
 </div>

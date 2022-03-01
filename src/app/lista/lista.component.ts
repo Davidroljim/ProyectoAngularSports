@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ListaService } from '../lista.service';
 
 @Component({
   selector: 'app-lista',
@@ -7,13 +8,24 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./lista.component.css']
 })
 export class ListaComponent implements OnInit {
-  clasificacion:any;
-  constructor( private http: HttpClient) { }
+  public clasificacion:Array <any>;
+  constructor( private _listaService : ListaService) { 
+    this.clasificacion=[];
+  }
 
-  ngOnInit(): void {
-    this.http.get('https://www.thesportsdb.com/api/v1/json/2/lookuptable.php?l=4335&s=2021-2022').subscribe(data=>{this.clasificacion=data;});
+  ngOnInit() {
 
-    console.table(this.clasificacion);
+    this._listaService.obtener().subscribe(data=>{
+      for (let index = 0; index < data.table.length; index++) {
+        this.clasificacion.push(data.table[index]);
+      
+      }
+      console.log(this.clasificacion[0].strTeam);
+    });
+
+
+   
+    
   }
 
   

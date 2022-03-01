@@ -33,7 +33,7 @@ npm install bootstrap jquery @popperjs/core
 
 "styles": [
   "node_modules/bootstrap/dist/css/bootstrap.min.css",
-  "src/styles.scss"
+  "src/styles.css"
 ],
 "scripts": [
   "node_modules/jquery/dist/jquery.min.js",
