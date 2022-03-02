@@ -30,11 +30,15 @@ export class FormComponent implements OnInit {
 
         // stop here if form is invalid
         if (this.formularioFutbol.invalid) {
+            this.error ="Datos incorrectos, por favor revise el formulario";
             return;
+        }else{
+            this.error ="";
         }
 
         // display form values on success
         alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.formularioFutbol.value, null, 4));
+        location.href = "mailto:"+this.formularioFutbol.value.correo+'?subject=Buenas: '+this.formularioFutbol.value.nombre +" "+ this.formularioFutbol.value.apellidos+" "+this.formularioFutbol.value.fnacimiento+'&body=Indicanos tu petición por aquí.';
     }
 
     onReset() {
@@ -42,11 +46,11 @@ export class FormComponent implements OnInit {
         this.formularioFutbol.reset();
     }
     //Coger datos formulario
-    get nombre() {
+    /*get nombre() {
         return this.formularioFutbol.get('nombre')?.value;
       }
 
-    get apellidos() {
+    get apellidos() {   
         return this.formularioFutbol.get('apellidos')?.value;
     }
 
@@ -56,20 +60,7 @@ export class FormComponent implements OnInit {
 
     get fnacimiento() {
         return this.formularioFutbol.get('fnacimiento')?.value;
-      }
+      }*/
 
       error="";
-    enviarDatos(){
-        
-        //console.warn (this.formularioFutbol.value);
-
-        if (!this.formularioFutbol.invalid) {
-            this.error ="";
-            
-        }else{
-            this.error ="Datos incorrectos, por favor revise el formulario";
-            
-        }
-        
-   }
 }

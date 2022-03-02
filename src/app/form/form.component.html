@@ -1,9 +1,9 @@
-<div class="card m-3">
+<div class="card m-3 w-50 position-absolute top-50 start-50 translate-middle">
     <h5 class="text-center card-header">Formualario de Contacto</h5>
     <div class="container">
         <div class="abs-center">
     <div class="card-body">
-        <form [formGroup]="formularioFutbol" (ngSubmit)="enviarDatos()">
+        <form [formGroup]="formularioFutbol" (ngSubmit)="onSubmit()">
             <div class ="row">
 
                 <div class="form-group col-4">

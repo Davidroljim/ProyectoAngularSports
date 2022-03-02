@@ -41,5 +41,9 @@ export class ListaComponent implements OnInit {
     
   }
 
+  borrarEquipo(i:number){
+    this.clasificacion.splice(i,1);
+  }
+
   
 }
