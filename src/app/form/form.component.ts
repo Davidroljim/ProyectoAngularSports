@@ -11,8 +11,8 @@ export class FormComponent implements OnInit {
     public title:string = "Formulario";
     public formularioFutbol = new FormGroup({
     correo: new FormControl('', [Validators.required, Validators.email]),
-    nombre: new FormControl('', [Validators.required, Validators.minLength(5)]),
-    apellidos: new FormControl('', [Validators.required, Validators.minLength(5)]),
+    nombre: new FormControl('', [Validators.required, Validators.minLength(4)]),
+    apellidos: new FormControl('', [Validators.required, Validators.minLength(4)]),
     fnacimiento: new FormControl('', [Validators.required]),
 
     
@@ -23,7 +23,7 @@ export class FormComponent implements OnInit {
     }
 
     // convenience getter for easy access to form fields
-    get f() { return this.formularioFutbol.controls; }
+    //get f() { return this.formularioFutbol.controls; }
 
     onSubmit() {
         this.submitted = true;
@@ -37,7 +37,6 @@ export class FormComponent implements OnInit {
         }
 
         // display form values on success
-        alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.formularioFutbol.value, null, 4));
         location.href = "mailto:"+this.formularioFutbol.value.correo+'?subject=Buenas: '+this.formularioFutbol.value.nombre +" "+ this.formularioFutbol.value.apellidos+" "+this.formularioFutbol.value.fnacimiento+'&body=Indicanos tu petición por aquí.';
     }
 
