@@ -22,8 +22,7 @@ export class FormComponent implements OnInit {
     ngOnInit() {
     }
 
-    // convenience getter for easy access to form fields
-    //get f() { return this.formularioFutbol.controls; }
+    
 
     onSubmit() {
         this.submitted = true;
@@ -44,22 +43,6 @@ export class FormComponent implements OnInit {
         this.submitted = false;
         this.formularioFutbol.reset();
     }
-    //Coger datos formulario
-    /*get nombre() {
-        return this.formularioFutbol.get('nombre')?.value;
-      }
-
-    get apellidos() {   
-        return this.formularioFutbol.get('apellidos')?.value;
-    }
-
-    get correo() {
-        return this.formularioFutbol.get('correo')?.value;
-      }
-
-    get fnacimiento() {
-        return this.formularioFutbol.get('fnacimiento')?.value;
-      }*/
 
       error="";
 }
